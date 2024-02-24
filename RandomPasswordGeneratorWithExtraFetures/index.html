@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RandomPasswordGeneratorWithExtraFetures</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- top layer   -->
+    <div class=" h-[100vh] w-full flex justify-center items-center">
+        <!-- heading  -->
+        <div class="bg-blue-50 border-2 h-[500px] w-[600px] flex-col justify-center items-center drop-shadow-2xl ">
+                    <div class="w-full mt-[50px]"><h1 class="text-2xl text-black text-center">Password Generato</h1></div>
+                        <!-- showing output -->
+                        <div class="w-full flex justify-center">
+                            <div id="showoutput"   class="  m-6 p-[7px] w-[400px] text-center border-2 ">Press Genarate button to Genarate password</div>
+                        </div>
+                            
+                        
+                                    <!-- buttons -->
+                                    <div class="flex w-full justify-center gap-1 mt-[10px] ">
+                                        <button type="button" id="Genarate"  class="bg-blue-600 text-white p-2 h-[35px] w-[160px] rounded-l">Genarate</button>
+                                        <button type="button" id="clipboard" class="bg-blue-600 text-white p-2 h-[35px] w-[160px] rounded-l ">copy to clipboard</button>
+                                    </div>
+                                    <!-- list of item  -->
+                                    <!-- <div class="w-full flex justify-center mt-[40px]">
+                                        <div class=" flex-col">
+                                            <div class="flex gap-[250px]">
+                                                <h1> password length</h1>
+                                                <input type="checkbox">
+                                            </div>
+                                            <div class="flex gap-[250px]">
+                                                <h1> include uppercase letters</h1>
+                                                <input type="checkbox">
+                                            </div>
+                                            <div class="flex gap-[250px]">
+                                                <h1> include lowercase letters</h1>
+                                                <input type="checkbox">
+                                            </div>
+                                            <div class="flex gap-[250px]">
+                                                <h1> include numbers</h1>
+                                                <input type="checkbox">
+                                            </div>
+                                            <div class="flex gap-[250px]">
+                                                <h1> include Symbols</h1>
+                                                <input type="checkbox">
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                    <div class="flex justify-center gap-[200px] mt-[40px] text-xl">
+                                        <div class="flex-col justify-center">
+                                            <h1> Password length</h1>
+                                            <h1> include uppercase letters</h1>
+                                            <h1> include lowercase letters</h1>
+                                            <h1> include numbers</h1>
+                                            <h1> include Symbols</h1>
+                                        </div>
+                                        <div class="flex-col justify-center">
+                                            <div><input type="number" name="" id="passwordlength" class="w-[50px]"></div>
+                                            <div><input type="checkbox" id="uppercase"></div>
+                                            <div><input type="checkbox" id="lowercase"></div>
+                                            <div><input type="checkbox" id="numbers"></div>
+                                            <div><input type="checkbox" id="Symbols"></div>
+                                            <!-- <input type="checkbox">
+                                            <input type="checkbox">
+                                            <input type="checkbox"> -->
+                                        </div>
+                                    </div>
+                                
+        </div>
+    </div>
+
+
+    <script src="./script.js"></script>
+</body>
+</html>
