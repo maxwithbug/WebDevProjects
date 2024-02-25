@@ -27,7 +27,7 @@ let showoutput = document.querySelector('#showoutput')
         'y', 'z'
     ];
     const symbol =['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+', '=', '{', '}', '[', ']', '|', '\\', ':', ';', '"', '\'', '<', '>', ',', '.', '?', '/', '~', '`'];
-    const numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+
     
 
 let passwordlength = 10 ; /*Default length for password */
@@ -68,7 +68,7 @@ Genarate.addEventListener('click',()=>{
     let currentpass = ""
     let CharecterArray = [] 
     
-    CharecterArray.push(numbers)
+    CharecterArray.push(password)
     if( include_uppercase_letters.checked){ CharecterArray.push(upp)}
     if( include_lowercase_letters.checked){CharecterArray.push(low)}
     if( include_Symbols.checked){CharecterArray.push(symbol)}
