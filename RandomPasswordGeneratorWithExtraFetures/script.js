@@ -27,55 +27,82 @@ let showoutput = document.querySelector('#showoutput')
         'y', 'z'
     ];
     const symbol =['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+', '=', '{', '}', '[', ']', '|', '\\', ':', ';', '"', '\'', '<', '>', ',', '.', '?', '/', '~', '`'];
+    const numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
     
 
 let passwordlength = 10 ; /*Default length for password */
+let clipboardValue 
+
 Genarate.addEventListener('click',()=>{
     document.body.style.backgroundColor = 'red'
     let passwordlength2 = document.querySelector('#passwordlength').value
     let number = parseInt(passwordlength2)
+
     //setting password length according to user input 
     if(number !== '' && !isNaN(number)/*The expression !isNaN(number) is checking if the value stored in the variable number is a valid number or not. */ ){ 
         passwordlength = number
     }
 
 
-    
-    let flag = 0 
-    if( include_uppercase_letters.checked){
-        let flag = 1
-    }
-    if( include_lowercase_letters.checked){
-        let flag = 2
-    }
-    if( include_numbers .checked){
-        let flag = 3
-    }
-    if( include_Symbols.checked){
-        let flag = 4
-    }
-    //making normal password 
+    /*making normal password */
     let password = []; 
     for(i=1 ;i<=passwordlength ;i++){
-        let collect = Math.floor(Math.random() * (10 - 0 + 0)) + 0;
-        password.push(collect)
+        let collect = Math.floor(Math.random()*10);
+        if(passwordlength!==password.length){
+            password.push(collect)
+        }
     }
     console.log(password);
-    const FinalArray = password.join(''); //join works only on a array
-    const FinalString = FinalArray.toString()
-    console.log(FinalString);
-    //showing password to html 
-    showoutput.textContent = FinalString
+    let FinalArray = password.join(''); //join works only on a array
+    let Finalvalue = parseInt(FinalArray.toString())
+    // clipboardValue = Finalvalue
+    console.log(Finalvalue);
 
-    //Adding uppercse letters 
-    if(flag === 1){
-        alert('coool nnoob')
-        
-    }
 
-    function addingUpperCase(){
-        
-    }
+    /*showing password to html*/ 
+    // showoutput.textContent = Finalvalue
+
+    
+    
+    /*Adding items to password according to check boxes*/
+    let currentpass = ""
+    let CharecterArray = [] 
+    
+    CharecterArray.push(numbers)
+    if( include_uppercase_letters.checked){ CharecterArray.push(upp)}
+    if( include_lowercase_letters.checked){CharecterArray.push(low)}
+    if( include_Symbols.checked){CharecterArray.push(symbol)}
+
+    console.log(CharecterArray);
+
+
+
+    /*main code for choosing item randomly */
+function getRandomValues(data , numIwant){
+    const MakingSingle = [].concat(...data) //making all array in a single array form
+    /* Select random values using Array.prototype.sample*/
+    const RandomValue = MakingSingle.sort(()=>Math.random()-0.5).slice(0,numIwant)
+    return RandomValue
+}
+
+const selectedValues = getRandomValues(CharecterArray, 10);
+    let AddedArray = selectedValues.join(''); //join works only on a array
+    let AddedFinalvalue = AddedArray.toString()
+    clipboardValue = AddedFinalvalue
+console.log(selectedValues);
+showoutput.textContent = AddedFinalvalue
+
 });
 
-/*Use .toString() for arrays: If you're directly assigning an array to textContent, it won't work. Convert the array to a string using password.toString() before assignment. */
+
+
+/*Copy to the clip board */
+clipboard.addEventListener('click',()=>{
+    navigator.clipboard.writeText(clipboardValue)
+    .then(()=>{
+        console.log('copied to clipboard');
+    })
+    .catch((err)=>{
+        console.log('errroor',err);
+    })
+});
