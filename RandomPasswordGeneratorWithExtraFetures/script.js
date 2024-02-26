@@ -34,15 +34,11 @@ let passwordlength = 10 ; /*Default length for password */
 let clipboardValue 
 
 Genarate.addEventListener('click',()=>{
-    document.body.style.backgroundColor = 'red'
     let passwordlength2 = document.querySelector('#passwordlength').value
     let number = parseInt(passwordlength2)
 
-    //setting password length according to user input 
-    if(number !== '' && !isNaN(number)/*The expression !isNaN(number) is checking if the value stored in the variable number is a valid number or not. */ ){ 
-        passwordlength = number
-    }
-
+    //setting password length according to user input or if there is no input so the default value is 10 
+    passwordlength = !isNaN(number) && number > 0 ? number : 10 ;
 
     /*making normal password */
     let password = []; 
@@ -85,7 +81,7 @@ function getRandomValues(data , numIwant){
     return RandomValue
 }
 
-const selectedValues = getRandomValues(CharecterArray, 10);
+const selectedValues = getRandomValues(CharecterArray, number);
     let AddedArray = selectedValues.join(''); //join works only on a array
     let AddedFinalvalue = AddedArray.toString()
     clipboardValue = AddedFinalvalue
